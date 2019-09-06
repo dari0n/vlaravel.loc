@@ -14,5 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::group(['namespace' => 'Blog', 'prefix' => 'blog'], function() { //namespace == subfolder Blog
+    Route::resource('posts','PostController')->names('Post');
+});
+Route::resource('rest','RestTestController')->names('RestTest');
 
