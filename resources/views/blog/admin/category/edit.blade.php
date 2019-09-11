@@ -7,6 +7,34 @@
         @method('PATCH')
         @csrf
         <div class="container">
+            @if($errors->any())
+                <div class="row justify-content-center">
+                    <div class="col-md-11">
+                        <div class="alert alert-danger" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                                <span aria-hidden="true">x</span>
+                            </button>
+                            @foreach($errors->all() as $error)
+                                {{$error}}
+                            @endforeach
+                        </div>
+                    </div>
+
+                </div>
+            @endif
+
+            @if($message = Session::get('success'))
+                    <div class="row justify-content-center">
+                        <div class="col-md-11">
+                            <div class="alert alert-success" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                                    <span aria-hidden="true">x</span>
+                                </button>
+                                {{$message}}
+                            </div>
+                        </div>
+                    </div>
+                @endif
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     @include('blog.admin.category.includes.item_edit_main_col')
