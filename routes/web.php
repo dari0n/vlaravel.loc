@@ -14,8 +14,31 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::group(['namespace' => 'Blog', 'prefix' => 'blog'], function() { //namespace == subfolder Blog
-    Route::resource('posts','PostController')->names('Post');
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+$blogGroupData = [
+    'namespace' => 'Blog', //folder with controllers
+    'prefix' => 'blog'  //url
+];
+
+Route::group($blogGroupData, function() { //namespace == subfolder Blog
+    Route::resource('posts','PostController')->names('blog.posts');
 });
-Route::resource('rest','RestTestController')->names('RestTest');
+//Route::resource('rest','RestTestController')->names('RestTest');
+
+
+$adminGroupData = [
+    'namespace' => 'Blog\Admin',
+    'prefix' => 'admin/blog'
+];
+
+Route::group($adminGroupData, function (){
+    $methods = ['index', 'edit', 'store', 'update', 'create','show'];
+    Route::resource('categories','CategoryController')
+        ->only($methods)
+        ->names('blog.admin.categories');
+});
+
 

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Blog;
+namespace App\Http\Controllers\Blog\Admin;
 
-use App\Models\BlogPost;
+use App\Models\BlogCategory;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-
-class PostController extends BaseController
+class CategoryController extends BaseAdminController
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,10 @@ class PostController extends BaseController
      */
     public function index()
     {
-       $items = BlogPost::all();
-       return view('blog.posts.index',compact('items'));
+        //
+        $paginator = BlogCategory::paginate(5);
+        return view('blog.admin.category.index',compact('paginator'));
+
     }
 
     /**
@@ -27,6 +29,7 @@ class PostController extends BaseController
     public function create()
     {
         //
+        dd(__METHOD__);
     }
 
     /**
@@ -61,6 +64,7 @@ class PostController extends BaseController
     public function edit($id)
     {
         //
+
     }
 
     /**
@@ -72,7 +76,7 @@ class PostController extends BaseController
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
