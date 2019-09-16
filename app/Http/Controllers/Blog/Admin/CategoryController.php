@@ -6,6 +6,7 @@ use App\Models\BlogCategory;
 use Dotenv\Parser;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\BlogCategoryUpdateRequest;
 
 class CategoryController extends BaseAdminController
 {
@@ -79,9 +80,21 @@ class CategoryController extends BaseAdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BlogCategoryUpdateRequest $request, $id)
     {
-        //$id = 999;
+
+        //$validatedData = $this->validate($request,$rules);
+        //$validatedData = $request->validate($rules);
+
+        //$validator = \Validator::make($request->all(),$rules);
+        //$validatedData[] = $validator->passes();
+        //$validatedData[] = $validator->validate();
+        //$validatedData[] = $validator->failed();
+        //$validatedData[] = $validator->errors();
+        //$validatedData[] = $validator->fails();
+
+
+
         $item = BlogCategory::find($id);
         if(empty($item)){
             return back()
