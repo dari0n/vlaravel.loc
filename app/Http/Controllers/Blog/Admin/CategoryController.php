@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Blog\Admin;
 
+use App\Http\Requests\BlogCategoryCreateRequest;
 use App\Models\BlogCategory;
 use Dotenv\Parser;
 use Illuminate\Http\Request;
@@ -31,7 +32,12 @@ class CategoryController extends BaseAdminController
     public function create()
     {
         //
-        dd(__METHOD__);
+        $item = new BlogCategory();
+        $categoryList = BlogCategory::all();
+
+        return view('blog.admin.category.edit',
+        compact('item','categoryList'));
+
     }
 
     /**
@@ -40,9 +46,24 @@ class CategoryController extends BaseAdminController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BlogCategoryCreateRequest $request)
     {
-        //
+        $data = $request->input();
+        if(empty($data['slug']))
+        {
+            $data['slug'] = \Str::slug($data['title']);
+
+        }
+
+       $item = (new BlogCategory())->create($data);
+
+        if($item) {
+            return redirect()->route('blog.admin.categories.edit',[$item->id])
+                ->with(['success' => 'Успешно сохранено']);
+        }else {
+            return back()->withErrors(['msg' => 'Ошибка сохранения'])->withInput();
+        }
+
     }
 
     /**
