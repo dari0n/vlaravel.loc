@@ -8,5 +8,8 @@ use App\Http\Controllers\Blog\BaseController as GuestBaseController;
 
 abstract class BaseAdminController extends GuestBaseController
 {
+    public function __construct()
+    {
+    }
 
 }

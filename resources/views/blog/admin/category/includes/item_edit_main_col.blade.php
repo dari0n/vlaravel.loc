@@ -32,6 +32,7 @@
                                    class="form-control"
                             >
                         </div>
+
                         <div class="form-group">
                             <label for="parent_id">Родитель</label>
                             <select name="parent_id"
@@ -39,10 +40,11 @@
                                    class="form-control"
                                    placeholder="Выберете категорию"
                                    required>
+
                              @foreach($categoryList as $categoryOption)
                                  <option value="{{$categoryOption->id}}"
                                      @if($categoryOption->id == $item->parent_id) selected @endif>
-                                     {{$categoryOption->id}} . {{$categoryOption->title}}
+                                      {{$categoryOption->title}}
                                  </option>
                              @endforeach
                             </select>
