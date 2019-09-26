@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52d40aa6-1688-4700-812f-16ad8eadc2ea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/BlogCategoryCreateRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/BlogCategoryRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/CoreRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Blog/Admin/BaseAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Blog/Admin/BaseAdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Blog/Admin/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Blog/Admin/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blog/admin/category/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog/admin/category/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/blog/admin/category/includes/item_edit_main_col.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog/admin/category/includes/item_edit_main_col.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -131,13 +133,13 @@
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\work\code\vlaravel.loc\app\Models" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\work\code\vlaravel.loc\resources\views\blog\admin\category\includes" />
       <recent name="D:\work\code\vlaravel.loc\resources\views\blog\admin\category" />
       <recent name="D:\work\code\vlaravel.loc\app\Http\Controllers\Blog\Admin" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\work\code\vlaravel.loc\app\Models" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -172,7 +174,7 @@
       <workItem from="1568096391585" duration="16201000" />
       <workItem from="1568226567314" duration="3249000" />
       <workItem from="1568311036099" duration="6810000" />
-      <workItem from="1569441200882" duration="2688000" />
+      <workItem from="1569441200882" duration="10278000" />
     </task>
     <servers />
   </component>
