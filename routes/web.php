@@ -36,9 +36,14 @@ $adminGroupData = [
 
 Route::group($adminGroupData, function (){
     $methods = ['index', 'edit', 'store', 'update', 'create','show'];
+    //Admin Categories
     Route::resource('categories','CategoryController')
         ->only($methods)
         ->names('blog.admin.categories');
+    //Admin Posts
+    Route::resource('posts','PostController')
+        ->except(['show'])
+        ->names('blog.admin.posts');
 });
 
 
