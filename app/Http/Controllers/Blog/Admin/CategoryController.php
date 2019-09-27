@@ -135,7 +135,7 @@ class CategoryController extends BaseAdminController
 
 
 
-        $item = $this->blogCategoryRepository=>getEdit($id);
+        $item = $this->blogCategoryRepository->getEdit($id);
         if(empty($item)){
             return back()
                 ->withErrors(['msg' => "Запись id=[ {$id} ] не найдена"])
