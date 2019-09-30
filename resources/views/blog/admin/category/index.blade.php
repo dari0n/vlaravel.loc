@@ -25,7 +25,16 @@
                                             <a href="{{route('blog.admin.categories.edit',$item->id)}}">{{$item->title}}</a>
                                         </td>
                                         <td @if(in_array($item->parent_id,[0,1])) style="color:#ccc" @endif>
-                                            <span>{{$item->parent_id}}</span>
+                                            <span>
+                                                {{--
+                                                    $item->parentCategory->title
+
+                                                    ??($item->id === \App\Models\BlogCategory::ROOT
+                                                    ? 'Корень'
+                                                    : '???')
+                                                 --}}
+                                                {{$item->parentTitle}}
+                                            </span>
                                         </td>
                                     </tr>
                                 @endforeach

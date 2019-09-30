@@ -62,6 +62,7 @@ class BlogPostObserver
         {
             $blogPost->slug = \Str::slug($blogPost->title);
         }
+
     }
 
     /**
@@ -121,6 +122,7 @@ class BlogPostObserver
 
     protected function setUser(BlogPost $blogPost)
     {
+        //Временно, пока не настроены права и авторизация
         $blogPost->user_id = auth()->id() ?? BlogPost::UNKNOWN_USER;
     }
 

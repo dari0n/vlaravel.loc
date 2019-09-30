@@ -31,7 +31,7 @@ class CategoryController extends BaseAdminController
         //
         //$paginator = BlogCategory::paginate(5);
 
-        $paginator = $this->blogCategoryRepository->getAllWithPaginate(5);
+        $paginator = $this->blogCategoryRepository->getAllWithPaginate(10);
         return view('blog.admin.category.index',compact('paginator'));
 
     }
