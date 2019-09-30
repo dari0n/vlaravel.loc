@@ -44,6 +44,7 @@ Route::group($adminGroupData, function (){
     Route::resource('posts','PostController')
         ->except(['show'])
         ->names('blog.admin.posts');
+    Route::get('/posts/restore/{post}', 'PostController@restore')->name('blog.admin.posts.restore');
 });
 
 
