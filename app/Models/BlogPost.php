@@ -9,7 +9,19 @@ class BlogPost extends Model
 {
     //
     use SoftDeletes;
-
+    protected $fillable = [
+        'category_id',
+        'user_id',
+        'title',
+        'excerpt',
+        'content_raw',
+        'content_html',
+        'is_published',
+        'published_at',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
     /**
      * Категория статьи
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
