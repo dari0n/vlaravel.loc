@@ -9,7 +9,9 @@ class BlogPost extends Model
 {
     //
     use SoftDeletes;
+    //Временно, пока не настроены права и авторизация
     const UNKNOWN_USER = 1;
+
     protected $fillable = [
         'category_id',
         'title',
