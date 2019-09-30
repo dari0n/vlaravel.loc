@@ -24,6 +24,7 @@
                                     <th>Категория</th>
                                     <th>Заголовок</th>
                                     <th>Дата публикации</th>
+                                    <th>Статус</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -33,7 +34,8 @@
                                     <td>{{$post->user->name}}</td>
                                     <td>{{$post->category->title}}</td>
                                     <td><a href="{{route('blog.admin.posts.edit',$post->id)}}">{{$post->title}}</a></td>
-                                    <td>{{$post->published_at ? \Carbon\Carbon::parse($post->piblished_at)->format('d.M H:i') : "Не опубликовано"}}</td>
+                                    <td>{{$post->published_at ? \Carbon\Carbon::parse($post->piblished_at)->format('d.M H:i') : "-------"}}</td>
+                                    <td>{{$post->is_published ? "Опубликовано" : "Не опубликовано"}}</td>
                                 </tr>
 
                             @endforeach
