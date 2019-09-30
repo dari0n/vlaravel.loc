@@ -144,6 +144,28 @@ class PostController extends BaseAdminController
      */
     public function destroy($id)
     {
-        dd(__METHOD__, $id);
+        $result = BlogPost::destroy($id);
+        if($result)
+        {
+            return redirect()
+                ->route('blog.admin.posts.index')
+                ->with(['success' => "Запись c id=[$id] удалена."]);
+        }else{
+            return back()->withErrors(['msg' => 'Ошибка удаления']);
+        }
+    }
+
+    public function restore($id)
+    {
+        $result = BlogPost::withTrashed()->where('id', $id)->restore();
+        if($result)
+        {
+            return redirect()
+                ->route('blog.admin.posts.index')
+                ->with(['success' => "Запись с id [$id] восстановлена"]);
+        }else{
+            return back()->withErrors(['msg' => 'Ошибка восстановления.']);
+        }
+
     }
 }
