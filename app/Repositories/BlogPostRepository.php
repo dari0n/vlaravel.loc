@@ -28,9 +28,20 @@ class BlogPostRepository extends CoreRepository
        $result = $this->startConditions()
            ->select($fields)
            ->orderBy('id','DESC')
+           ->with(['category:id,title','user:id,name'])
            ->paginate(25);
 
        return $result;
+   }
+
+    /**
+     * Получить модель для редактирвоания в админке
+     * @param int $id
+     * @return Model
+     */
+   public function getEdit($id)
+   {
+       return $this->startConditions()->find($id);
    }
 
 
