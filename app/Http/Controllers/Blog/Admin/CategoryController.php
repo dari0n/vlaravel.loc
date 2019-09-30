@@ -63,11 +63,7 @@ class CategoryController extends BaseAdminController
     public function store(BlogCategoryCreateRequest $request)
     {
         $data = $request->input();
-        if(empty($data['slug']))
-        {
-            $data['slug'] = \Str::slug($data['title']);
-
-        }
+       //Создание slug ушло в observer
 
        $item = (new BlogCategory())->create($data);
 
@@ -116,7 +112,7 @@ class CategoryController extends BaseAdminController
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  BlogCategoryUpdateRequest
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
