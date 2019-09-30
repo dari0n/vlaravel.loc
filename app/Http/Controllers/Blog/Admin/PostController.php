@@ -102,14 +102,7 @@ class PostController extends BaseAdminController
 
         $data = $request->all();
 
-        if(empty($data['slug']))
-        {
-            $data['slug'] = Str::slug($data['title']);
-        }
-        if(empty($item->published_at) && $data['is_published'])
-        {
-            $data['published_at'] = Carbon::now();
-        }
+       //Ушло в observer
 
         $result = $item->update($data);
 
